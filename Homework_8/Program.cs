@@ -13,7 +13,10 @@
             //var result = GetLongestSuffix("Some Random Text", "It is Some Random Text");
             //Console.WriteLine(result);
 
-            var result = ProcessList(new List<string>(){ "test", "random", "programming", "word" });
+            //var result = ProcessList(new List<string>(){ "test", "random", "programming", "word" });
+            //Console.WriteLine(result);
+
+            var result = PrintDigitsWithRecursion(12345);
             Console.WriteLine(result);
 
         }
@@ -98,6 +101,16 @@
 
             return "Unknown list type or empty list";
 
+        }
+
+        static string PrintDigitsWithRecursion(int number)
+        {
+            if (number < 0) number = -number;
+
+            if (number / 10 == 0)
+                return number.ToString();
+
+            return PrintDigitsWithRecursion(number / 10) + " - " + (number % 10);
         }
     }
 }
