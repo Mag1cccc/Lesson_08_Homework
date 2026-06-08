@@ -10,7 +10,10 @@
             //var result = CountSockPairs("AAABB");
             //Console.WriteLine(result);
 
-            var result = GetLongestSuffix("Some Random Text", "It is Some Random Text");
+            //var result = GetLongestSuffix("Some Random Text", "It is Some Random Text");
+            //Console.WriteLine(result);
+
+            var result = ProcessList(new List<string>(){ "test", "random", "programming", "word" });
             Console.WriteLine(result);
 
         }
@@ -74,5 +77,28 @@
 
             return suffix;
         }
+
+        public static object ProcessList<T>(List<T> list) {
+
+            if (list is List<string> stringList) {
+                return string.Join("\n", stringList.Select(s => s.ToUpper()));
+            }
+
+            else if (list is List<int> intList)
+            {
+                return intList.Sum();
+            }
+
+            else if (list is List<bool> boolList && boolList.Count > 0)
+            {
+                return $"First Element is {boolList[0]}\n" +
+               $"Last Element is {boolList[boolList.Count - 1]}\n" +
+               $"Middle Element is {boolList[boolList.Count / 2]}";
+            }
+
+            return "Unknown list type or empty list";
+
+        }
     }
 }
+
