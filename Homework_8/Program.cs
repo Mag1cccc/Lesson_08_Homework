@@ -16,7 +16,10 @@
             //var result = ProcessList(new List<string>(){ "test", "random", "programming", "word" });
             //Console.WriteLine(result);
 
-            var result = PrintDigitsWithRecursion(12345);
+            //var result = PrintDigitsWithRecursion(12345);
+            //Console.WriteLine(result);
+
+            var result = ContainsDuplicate(new int[] { 1,2,3,1 });
             Console.WriteLine(result);
 
         }
@@ -111,6 +114,16 @@
                 return number.ToString();
 
             return PrintDigitsWithRecursion(number / 10) + " - " + (number % 10);
+        }
+
+        public static bool ContainsDuplicate(int[] nums) { 
+            HashSet<int> seenNumbers = new HashSet<int>();
+
+            foreach (int num in nums) {
+                if (!seenNumbers.Add(num)) return true;
+            }
+
+            return false;
         }
     }
 }
