@@ -7,7 +7,10 @@
             //var result = CountNumbersInPowerRange(2, 27, 4);
             //Console.WriteLine(result);
 
-            var result = CountSockPairs("AAABB");
+            //var result = CountSockPairs("AAABB");
+            //Console.WriteLine(result);
+
+            var result = GetLongestSuffix("Some Random Text", "It is Some Random Text");
             Console.WriteLine(result);
 
         }
@@ -48,6 +51,28 @@
             return pairs;
 
 
+        }
+
+        public static string GetLongestSuffix(string first, string second) {
+            var suffix = "";
+
+            var minLength = Math.Min(first.Length, second.Length);
+
+            for (var i = 1; i <= minLength; i++) { 
+                var charOne = first[first.Length - i];
+                var charTwo = second[second.Length - i];
+
+                if(charOne == charTwo)
+                {
+                    suffix = charOne + suffix;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return suffix;
         }
     }
 }
